@@ -21,10 +21,18 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 X = [ones(m,1) X];
+% Creating a column of ones to account for bias unit
 a2 = sigmoid(X * Theta1');
+% Calculating a2 for next layer of propagation by taking sigmoid function of the product of X and Theta1 (weights created by input layer)
+
 a2 = [ones(m,1) a2];
+% adding another column of ones to account for bias unit 
 classifier = sigmoid(a2 * Theta2');
+% taking sigmoid function of a2 times theta2 to find a3 or the classifier in this case
+
 [~,p] = max(classifier, [], 2);
+% final prediction will be an array that pulls the labels with the highest output functions
+
 
 
 
