@@ -14,7 +14,7 @@ num_labels = size(all_theta, 1);
 % You need to return the following variables correctly
 p = zeros(size(X, 1), 1);
 
-% Add ones to the X data matrix
+% Add ones to the X data matrix in order to compensate for bias unit
 X = [ones(m, 1) X];
 
 % ====================== YOUR CODE HERE ======================
@@ -31,7 +31,7 @@ X = [ones(m, 1) X];
 %
 
 [a,p] = max((X * all_theta'), [], 2)
-
+% setting final list p and term a with the maximum values found in each row when X is multiplied by the trained network's all_theta values
 
 % =========================================================================
 
