@@ -38,20 +38,22 @@ grad = zeros(size(theta));
 
 h_theta = sigmoid(X*theta);
 
-
 J = -y .* log(h_theta) - (1-y) .* log(1-h_theta);
 J = J/m;
+
+%Application of logistic regression cost function
 
 cost1 = sum(J);
 cost2 = lambda/(2*m) * sum(theta(2:end) .^ 2);
 J = cost1 + cost2;
 
+%calculating cost2, which uses regularization and adding it to first cost
+
 grad = (1/m) * X' * (h_theta-y) + (lambda/m) * theta;
 grad(1) = grad(1) - (lambda/m * theta(1));
 
 
-
-
+%gradient descent using vectorization and regularization
 
 
 % =============================================================
